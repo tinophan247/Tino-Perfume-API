@@ -18,7 +18,7 @@ app.use(function(req, res, next) {
 });
 
 //lắng nghe sự kiện kết nối
-app.listen(5000, async () => {
+app.listen(3360, async () => {
   try {
     await sequelize.authenticate();
     console.log("Connection has been established successfully.");
