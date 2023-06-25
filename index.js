@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const { sequelize } = require("./models");
+const { rootRouter } = require("./routes");
 
 app.use(express.json());
 
@@ -17,8 +18,10 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.use("/api/v1",rootRouter);
+
 //lắng nghe sự kiện kết nối
-app.listen(9000, async () => {
+app.listen(5000, async () => {
   try {
     await sequelize.authenticate();
     console.log("Connection has been established successfully.");
